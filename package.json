@@ -1,0 +1,32 @@
+{
+  "name": "test-generator",
+  "repository": "http://github.com/toddmoore/test-generator",
+  "registry": "jspm",
+  "version": "0.1.0",
+  "main": "lib/index",
+  "jspm": {
+    "format": "es6",
+    "dependencies": {
+      "bourbon": "npm:bourbon@^4.2.1"
+    }
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "gulp": "^3.8.10",
+    "gulp-bump": "^0.1.11",
+    "gulp-html-replace": "^1.4.4",
+    "gulp-sass": "^1.3.3",
+    "gulp-shell": "^0.2.11",
+    "gulp-watch": "^4.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jspm": "^1.1.1",
+    "karma-mocha": "^0.1.10",
+    "karma-mocha-reporter": "^0.2.2",
+    "karma-sauce-launcher": "^0.2.10",
+    "karma-sinon": "^1.0.4",
+    "mocha": "^2.1.0",
+    "semver": "^4.2.0",
+    "sinon": "^1.12.2"
+  }
+}

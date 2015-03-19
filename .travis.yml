@@ -1,0 +1,16 @@
+language: node_js
+sudo: false
+node_js:
+  - "0.12"
+before_script:
+  - npm install -g jspm
+  - npm install --dev
+  - npm install -g karma-cli
+  - npm install -g divshot-cli
+  - npm install -g bower
+  - jspm config endpoints.github.auth $JSPM_AUTH
+  - jspm install
+  - bower install
+  - gulp build
+script:
+  - karma start karma.conf.js --single-run

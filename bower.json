@@ -1,0 +1,19 @@
+{
+	"name": "int-searchable",
+	"version": "0.1.2",
+	"homepage": "https://github.com/toddmoore/interactive-anzac-day",
+	"authors": [
+		"Todd Moore <todd.moore@guardian.co.uk>"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"guss": "latest"
+	}
+}
