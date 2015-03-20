@@ -1,0 +1,59 @@
+{{#if politicianData.debts}}
+<div class="table__container">
+   <table class="table  table--responsive-font table--striped">
+      <thead>
+         <tr>
+
+
+
+            <th class="table-column--importance-1">Debt Disclosure</th>
+
+
+
+
+         </tr>
+      </thead>
+      <tbody>
+        {{#each politicianData.debts}}
+         <tr class="">
+            <td class="table-column--sub">{{this.debtsDisclosure}}</td>
+         </tr>
+         {{/each}}
+      </tbody>
+
+      <caption class="table__caption table__caption--top">
+         Debts
+      </caption>
+
+   </table>
+</div>
+{{/if}}
+{{#if politicianData.corporations}}
+<div class="table__container">
+   <table class="table  table--responsive-font table--striped">
+      <thead>
+         <tr>
+            <th class="table-column--importance-1">Corporation Address</th>
+            <th class="table-column--importance-1">Corporation Name</th>
+            <th class="table-column--importance-1">Name of Interest or Description</th>
+            <th class="table-column--importance-1">Principal Objects</th>
+         </tr>
+      </thead>
+      <tbody>
+        {{#each politicianData.corporations}}
+         <tr class="">
+            <td class="table-column--importance-1">{{this.corporationAddress}}</td>
+            <td class="table-column--importance-1">{{this.corporationName}}</td>
+            <td class="table-column--importance-1">{{this.nameOfInterestOrDescription}}</td>
+            <td class="table-column--importance-1">{{this.principalObjectsDescription}}</td>
+         </tr>
+         {{/each}}
+      </tbody>
+
+      <caption class="table__caption table__caption--top">
+         Corporations
+      </caption>
+
+   </table>
+</div>
+{{/if}}

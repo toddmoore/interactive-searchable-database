@@ -8,6 +8,87 @@
 @import '../../bower_components/guss-typography/_typography';
 @import '../../bower_components/guss-colours/_colours';
 @import '../../bower_components/guss-webfonts/_webfonts';
+@import '../../bower_components/pasteup-palette/src/_palette';
+@import '../../bower_components/pasteup-forms/src/_forms';
+
+@import 'colour';
 
 @include guss-webfonts();
 @include guss-typography-defaults;
+@include guss-columns-utility;
+@include guss-row-utility;
+* {
+  -webkit-font-smoothing: antialiased;
+}
+body {
+    //font: bold 40px/1 sans-serif;
+    margin: 0;
+}
+h3 {
+  @include fs-header(1);
+  color: guss-colour(neutral-2);
+
+}
+h2 {
+  @include fs-headline(7);
+  margin-top: 0;
+  color: guss-colour(neutral-2);
+}
+figure.interactive {
+  margin: 0 !important;
+}
+.guInteractive {
+
+  background: #eee;
+  .l-main {
+    min-height: 100vh;
+  }
+}
+.form-field {
+  margin-bottom: 0 !important;
+}
+input {
+  max-width: 600px;
+}
+.submit-input {
+  position: relative;
+  top: rem(.05rem);
+  padding: 9px 10px;
+  outline: none;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.js-bloodhound-suggestions {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-shadow: 1px 1px 1px 1px #eee;
+  min-width: 20rem;
+  max-width: 30rem;
+  padding-top: .5rem;
+  cursor: pointer;
+  li {
+    cursor: pointer;
+    @include fs-textSans(3);
+    color: guss-colour(neutral-2);
+    margin: 1rem 0;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+}
+
+
+@include guss-columns(
+    $base-class: '.searchable',
+    $css3-columns-support: false, // Because buggy in some versions of WebKit
+    $columns-fallback-width: (
+        tablet: 720px,
+        desktop: 940px
+    ),
+    $columns-fallback-columns: (
+        tablet: 2,
+        desktop: 4
+    )
+);

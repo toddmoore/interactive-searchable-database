@@ -1,0 +1,46 @@
+
+<div class="guInteractive">
+  <div class="l-main bgc-white">
+    <header class="l-title">
+      <div class="l-row">
+        <div class="l-row__item"><h1 class="t-h1-h">Search for your MP</h1>
+        <p class="t-bd-h">Our model takes in all published constituency-level polls, UK-wide polls and polling conducted in the nations, and projects the result in each of the 650 Westminster constituencies using an adjusted average. <a class="link-method" href="http://www.theguardian.com/politics/2015/feb/27/uk-election-2015-the-guardian-poll-projection-methodology">Methodology</a></p>
+      </div>
+
+      </div>
+    </header>
+    <div class="row bdt-section" style="margin-bottom: 2rem;">
+      <div class="col-left">
+        <h2 class="t-h2-s" id="title_mainprojection">Start here</h2>
+        <p class="t-bd-s" id="par_mainprojection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="col-right mt-section">
+          <form autocomplete="off">
+              <div class="form-field">
+                  <input class="text-input" name="field-1" value="{{mpname}}" placeholder="Enter the last name of your MP" />
+
+              </div>
+
+                {{#if suggestions}}
+                <ul class="js-bloodhound-suggestions">
+                  {{#each suggestions}}
+                    <li on-click="mpselect" data-mp-id="{{id}}">{{firstname}} {{lastname}}</li>
+                  {{/each}}
+                </ul>
+              {{/if}}
+
+        </form>
+      </div>
+    </div>
+    {{#if politician}}
+    <div class="row bdt-section">
+      <div class="col-left">
+        <h2 class="t-h2-s" id="title_mainprojection">Results</h2>
+        <p class="t-bd-s" id="par_mainprojection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="col-right mt-section">
+        <DataTable />
+      </div>
+    </div>
+    {{/if}}
+</div>
