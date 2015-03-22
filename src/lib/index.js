@@ -36,6 +36,7 @@ class App {
 	}
 
 	setMp(mp) {
+		window.location.hash = "#";
 		this.set("selectedPolitician", false);
 		this.set("politician", false);
 		this.set("politicianData", []);
