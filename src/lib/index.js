@@ -30,6 +30,9 @@ class App {
 	}
 
 	handleMPNameChange(newValue, oldValue, keypath) {
+		if (newValue == "") {
+			this.set("politician", false);
+		}
 		this.bloodhound.get(newValue, (suggestions) => {
 			this.set("suggestions", suggestions);
 		});

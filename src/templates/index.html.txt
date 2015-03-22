@@ -6,8 +6,8 @@
         <div class="l-row__item"><h1 class="t-h1-h">{{{ translate("headline") }}}</h1>
         <p class="t-bd-h">{{{ translate("subtitle") }}}</p>
       </div>
+      
 
-      </div>
     </header>
     <div class="row bdt-section" style="margin-bottom: 2rem;">
       <div class="col-left">
@@ -35,8 +35,12 @@
     {{#if politician}}
     <div class="row bdt-section" id="results">
       <div class="col-left">
-        <h2 class="t-h2-s" id="title_mainprojection">{{ translate("results") }}</h2>
+        <h2 class="t-h2-s" id="title_mainprojection">{{ mpname }} <!--: {{ translate("results") }}--></h2>
         <p class="t-bd-s" id="par_mainprojection">{{{ translate("resultsIntroText") }}}</p>
+        <div class="btns-share">
+          <button class="btn-tt" data-source="twitter" data-view="labour-gains-and-losses"></button>
+          <button class="btn-fb" data-source="facebook" data-view="labour-gains-and-losses"> </button>
+        </div>
       </div>
       <div class="col-right mt-section">
         {{#each politicianData}}
