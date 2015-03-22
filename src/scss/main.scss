@@ -61,22 +61,35 @@ input {
 .js-bloodhound-suggestions {
   margin: 0;
   padding: 0;
+
   list-style-type: none;
   box-shadow: 1px 1px 1px 1px #eee;
   min-width: 20rem;
-  max-width: 30rem;
-  padding-top: .5rem;
+  max-width: 37.45rem;
+  padding-top: .05rem;
   cursor: pointer;
+  transition: background 0.2s ease;
+  position:relative;
+  top: -1px;
+  &:hover {
+    background: guss-colour(news-main-2);
+  }
   li {
+    &:hover {
+      background: guss-colour(neutral-6);
+    }
     cursor: pointer;
+    background: #fff;
     @include fs-textSans(3);
     color: guss-colour(neutral-2);
-    margin: 1rem 0;
-    padding-left: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem 1rem;
     border-bottom: 1px solid #eee;
+    transition: background 0.2s ease;
   }
 
+}
+.table__container {
+  margin-bottom: 1rem;
 }
 
 

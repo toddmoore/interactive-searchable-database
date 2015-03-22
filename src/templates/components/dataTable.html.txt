@@ -1,57 +1,25 @@
-{{#if politicianData.debts}}
+{{#if areaLength}}
 <div class="table__container">
    <table class="table  table--responsive-font table--striped">
       <thead>
          <tr>
-
-
-
-            <th class="table-column--importance-1">Debt Disclosure</th>
-
-
-
-
+           {{#each keys}}
+            <th class="table-column--importance-1">{{ translate(this) }}</th>
+           {{/each}}
          </tr>
       </thead>
       <tbody>
-        {{#each politicianData.debts}}
+        {{#each values}}
          <tr class="">
-            <td class="table-column--sub">{{this.debtsDisclosure}}</td>
+            {{#each this}}
+            <td class="table-column--importance-1">{{this}}</td>
+           {{/each}}
          </tr>
          {{/each}}
       </tbody>
 
       <caption class="table__caption table__caption--top">
-         Debts
-      </caption>
-
-   </table>
-</div>
-{{/if}}
-{{#if politicianData.corporations}}
-<div class="table__container">
-   <table class="table  table--responsive-font table--striped">
-      <thead>
-         <tr>
-            <th class="table-column--importance-1">Corporation Address</th>
-            <th class="table-column--importance-1">Corporation Name</th>
-            <th class="table-column--importance-1">Name of Interest or Description</th>
-            <th class="table-column--importance-1">Principal Objects</th>
-         </tr>
-      </thead>
-      <tbody>
-        {{#each politicianData.corporations}}
-         <tr class="">
-            <td class="table-column--importance-1">{{this.corporationAddress}}</td>
-            <td class="table-column--importance-1">{{this.corporationName}}</td>
-            <td class="table-column--importance-1">{{this.nameOfInterestOrDescription}}</td>
-            <td class="table-column--importance-1">{{this.principalObjectsDescription}}</td>
-         </tr>
-         {{/each}}
-      </tbody>
-
-      <caption class="table__caption table__caption--top">
-         Corporations
+         {{ translate(title) }}
       </caption>
 
    </table>

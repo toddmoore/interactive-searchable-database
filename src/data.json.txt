@@ -417,7 +417,7 @@
 }, {
 	"firstname": "Jillian",
 	"lastname": "Skinner",
-	"id": "Skinner,  Jillian"
+	"id": "Skinner, Jillian"
 }, {
 	"firstname": "Greg",
 	"lastname": "Smith",
