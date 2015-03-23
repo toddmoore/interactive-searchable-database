@@ -11,87 +11,89 @@ var datums = JSON.parse(Datums);
 var sample = JSON.parse(Sample);
 
 class App {
-	constructor(translations, bloodhound) {
-		this.bloodhound = bloodhound;
-		this.el = document.querySelector('.interactive');
-		this.template = mainTemplate;
-		this.data = {
-			"subtitle": "whatever",
-			"translate": this.handleTranslation,
-			"translation": translations
-		}
-		this.components = {
-			DataTable: Ractive.extend(new dataTable())
-		}
-	}
+  constructor(translations, bloodhound) {
+    this.bloodhound = bloodhound;
+    this.el = document.querySelector('.interactive');
+    this.template = mainTemplate;
+    this.data = {
+      "subtitle": "whatever",
+      "translate": this.handleTranslation,
+      "translation": translations,
+      "baseURL": "http://interactive.guim.co.uk/next-gen/au/2015/mar/interactive-searchable/"
+    }
+    this.components = {
+      DataTable: Ractive.extend(new dataTable())
+    }
+  }
 
-	handleTranslation(key) {
-		return this.get("translation")[key] || `<< NO TRANSLATION for ${key} >>`;
-	}
+  handleTranslation(key) {
+    return this.get("translation")[key] || `<< NO TRANSLATION for ${key} >>`;
+  }
 
-	handleMPNameChange(newValue, oldValue, keypath) {
-		if (newValue == "") {
-			this.set("politician", false);
-		}
-		this.bloodhound.get(newValue, (suggestions) => {
-			this.set("suggestions", suggestions);
-		});
-	}
+  handleMPNameChange(newValue, oldValue, keypath) {
+    if (newValue == "") {
+      this.set("politician", false);
+    }
+    this.bloodhound.get(newValue, (suggestions) => {
+      this.set("suggestions", suggestions);
+    });
+  }
 
-	setMp(mp) {
-		window.location.hash = "#";
-		this.set("selectedPolitician", false);
-		this.set("politician", false);
-		this.set("politicianData", []);
-		this.set("mpname", "");
-		var id = mp.context.id;
-		this.set("selectedPolitician", true);
-		this.set("politician", mp.context);
-		this.set("politicianData", sample[id]);
-		this.set("mpname", id);
-		window.location.hash = "#results";
-	}
+  setMp(mp) {
+    window.location.hash = "#";
+    this.set("selectedPolitician", false);
+    this.set("politician", false);
+    this.set("politicianData", []);
+    this.set("mpname", "");
+    var id = mp.context.id;
+    this.set("selectedPolitician", true);
+    this.set("politician", mp.context);
+    this.set("politicianData", sample[id]);
+    this.set("mpname", id);
+    window.location.hash = "#results";
+  }
 }
 
 var translations = new Promise((resolved, rejected) => {
-	jquery.getJSON(`http://interactive.guim.co.uk/spreadsheetdata/${key}.json`, (
-		data) => {
-		// TODO: add error
-		data = data.sheets.Sheet1;
-		var obj = {};
-		data.forEach((item) => {
-			var _key_ = null;
-			var _value_ = null;
-			for (var key in item) {
-				if (key == "key") {
-					_key_ = item[key];
-				} else {
-					_value_ = item[key];
-				}
-			}
-			obj[_key_] = _value_;
-		});
-		resolved(obj);
-	})
+  jquery.getJSON(
+    `http://interactive.guim.co.uk/spreadsheetdata/${key}.json`, (
+      data) => {
+      // TODO: add error
+      data = data.sheets.Sheet1;
+      var obj = {};
+      data.forEach((item) => {
+        var _key_ = null;
+        var _value_ = null;
+        for (var key in item) {
+          if (key == "key") {
+            _key_ = item[key];
+          } else {
+            _value_ = item[key];
+          }
+        }
+        obj[_key_] = _value_;
+      });
+      resolved(obj);
+    })
 }).then((data) => {
-	// Bloodhound
-	var bloodhound = new Bloodhound({
-		name: 'animals',
-		local: datums,
-		datumTokenizer: function(d) {
-			return Bloodhound.tokenizers.whitespace(d.lastname);
-		},
-		queryTokenizer: Bloodhound.tokenizers.whitespace
-	});
-	bloodhound.initialize();
+  // Bloodhound
+  var bloodhound = new Bloodhound({
+    name: 'animals',
+    local: datums,
+    datumTokenizer: function(d) {
+      return Bloodhound.tokenizers.whitespace(d.lastname);
+    },
+    queryTokenizer: Bloodhound.tokenizers.whitespace
+  });
+  bloodhound.initialize();
 
-	var app = new App(data, bloodhound);
-	var ractive = new Ractive(app);
+  var app = new App(data, bloodhound);
+  var ractive = new Ractive(app);
 
-	// attach proxy
-	ractive.on('mpselect', app.setMp);
-	// attach observers
-	ractive.observe("mpname", app.handleMPNameChange);
+  // attach proxy
+  ractive.on('mpselect', app.setMp);
+  // attach observers
+  ractive.observe("mpname", app.handleMPNameChange);
 });
 
 export default {};

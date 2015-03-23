@@ -6,11 +6,19 @@
         <div class="l-row__item"><h1 class="t-h1-h">{{{ translate("headline") }}}</h1>
         <p class="t-bd-h">{{{ translate("subtitle") }}}</p>
         <div class="row bgc-white" id="stickyRow">
-          <p class="byline" data-link-name="byline" data-component="meta-byline"><span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
-          <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/nick-evershed">Nick Evershed</a></span> and <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
-          <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/todd-moore">Todd Moore</a></span></p>
           <p class="col-left t-time" id="lastUpdate">Last update <time>{{ translate("update") }}</time></p>
-
+          <div class="pollie-animation">
+            <div class="inner">
+              <img src="{{baseURL}}images/baird.png" width="100%" alt="" />
+              <img src="{{baseURL}}images/skinner.png" width="100%" alt="" />
+              <img src="{{baseURL}}images/folley.png" width="100%" alt="" />
+            </div>
+          </div>
+          <p class="byline" data-link-name="byline" data-component="meta-byline">
+            <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
+              <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/nick-evershed">Nick Evershed</a>
+            </span>
+          </p>
           <ul class="col-right mb-60 ul__party t-ul__party" style="list-style-type: none">
             <li>
               <div class="rounded-icon social-icon social-icon--facebook">
