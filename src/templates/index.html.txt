@@ -5,8 +5,27 @@
       <div class="l-row">
         <div class="l-row__item"><h1 class="t-h1-h">{{{ translate("headline") }}}</h1>
         <p class="t-bd-h">{{{ translate("subtitle") }}}</p>
+        <div class="row bgc-white" id="stickyRow">
+          <p class="byline" data-link-name="byline" data-component="meta-byline"><span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
+          <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/nick-evershed">Nick Evershed</a></span> and <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
+          <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/todd-moore">Todd Moore</a></span></p>
+          <p class="col-left t-time" id="lastUpdate">Last update <time>{{ translate("update") }}</time></p>
+
+          <ul class="col-right mb-60 ul__party t-ul__party" style="list-style-type: none">
+            <li>
+              <div class="rounded-icon social-icon social-icon--facebook">
+                <i class="i-share-facebook--white i"></i>
+              </div>
+            </li>
+            <li>
+              <div class="rounded-icon social-icon social-icon--twitter">
+                <i class="i-share-twitter--white i"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      
+
 
     </header>
     <div class="row bdt-section" style="margin-bottom: 2rem;">

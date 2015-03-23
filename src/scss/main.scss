@@ -20,6 +20,10 @@
 * {
   -webkit-font-smoothing: antialiased;
 }
+a {
+  color: guss-colour(guardian-brand);
+  text-decoration: none;
+}
 body {
     //font: bold 40px/1 sans-serif;
     margin: 0;
@@ -92,6 +96,84 @@ input {
   margin-bottom: 1rem;
 }
 
+
+// SOCIAL ICONS HACK //
+// =============================================================================
+.social-icon {
+  width: 1.875rem;
+  height: 1.875rem;
+  border: 0.0625rem solid #333;
+  padding: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-color: transparent;
+  border: 0;
+  min-width: 2rem;
+  max-width: 100%;
+  width: auto;
+  height: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 50%;
+}
+.social-icon, .social-icon:hover, .social-icon:active, .social-icon:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+.social-icon--facebook {
+  background-color: #3067a3;
+}
+.i-share-facebook--white {
+  background-position: -16.6875rem -4.625rem;
+  width: 2rem;
+  height: 2rem;
+}
+.i-share-facebook--white {
+  background-position: -16.6875rem -4.625rem;
+  width: 2rem;
+  height: 2rem;
+}
+.social-icon i {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  background-size: 88%;
+  background-position: center;
+}
+.i {
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+}
+.i-share-facebook--white {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iLTIgLTIgMzIgMzIiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xNy45IDE0aC0zdjhIMTJ2LThoLTJ2LTIuOWgyVjguN0MxMiA2LjggMTMuMSA1IDE2IDVjMS4yIDAgMiAuMSAyIC4xdjNoLTEuOGMtMSAwLTEuMi41LTEuMiAxLjN2MS44aDNsLS4xIDIuOHoiLz48L3N2Zz4=);
+}
+
+.guInteractive .ul__party li:last-child::after {
+  content: "" !important;
+}
+.social-icon--twitter {
+  background-color: #03b3ee;
+}
+.i-share-twitter--white {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iLTIgLTIgMzIgMzIiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yMS4zIDEwLjV2LjVjMCA0LjctMy41IDEwLjEtOS45IDEwLjEtMiAwLTMuOC0uNi01LjMtMS42LjMgMCAuNi4xLjguMSAxLjYgMCAzLjEtLjYgNC4zLTEuNS0xLjUgMC0yLjgtMS0zLjMtMi40LjIgMCAuNC4xLjcuMWwuOS0uMWMtMS42LS4zLTIuOC0xLjgtMi44LTMuNS41LjMgMSAuNCAxLjYuNC0uOS0uNi0xLjYtMS43LTEuNi0yLjkgMC0uNi4yLTEuMy41LTEuOCAxLjcgMi4xIDQuMyAzLjYgNy4yIDMuNy0uMS0uMy0uMS0uNS0uMS0uOCAwLTIgMS42LTMuNSAzLjUtMy41IDEgMCAxLjkuNCAyLjUgMS4xLjgtLjEgMS41LS40IDIuMi0uOC0uMy44LS44IDEuNS0xLjUgMS45LjctLjEgMS40LS4zIDItLjUtLjQuNC0xIDEtMS43IDEuNXoiLz48L3N2Zz4=)
+}
+.guInteractive .ul__party li {
+  padding-right: 3px !important;
+  float: left;
+}
+.byline {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-family: "Guardian Text Egyptian Web",Georgia,serif;
+  font-weight: bold;
+  padding-top: 0.25rem;
+  line-height: 1.25rem;
+  color: #767676;
+}
 
 @include guss-columns(
     $base-class: '.searchable',
