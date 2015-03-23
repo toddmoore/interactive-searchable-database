@@ -4,7 +4,7 @@
       <thead>
          <tr>
            {{#each keys}}
-            <th class="table-column--importance-1">{{ translate(this) }}</th>
+            <th class="table-column--importance-1">{{ translate(title +"."+ this) }}</th>
            {{/each}}
          </tr>
       </thead>
