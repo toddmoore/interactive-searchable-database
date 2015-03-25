@@ -9,9 +9,9 @@
           <p class="col-left t-time" id="lastUpdate">Last update <time>{{ translate("update") }}</time></p>
           <div class="pollie-animation">
             <div class="inner">
-              <img src="{{baseURL}}images/baird.png" width="100%" alt="" />
-              <img src="{{baseURL}}images/skinner.png" width="100%" alt="" />
-              <img src="{{baseURL}}images/folley.png" width="100%" alt="" />
+              <img src="{{baseURL}}images/images/three-peps2-01.svg" width="100%" alt="" />
+
+
             </div>
           </div>
           <p class="byline" data-link-name="byline" data-component="meta-byline">
@@ -44,11 +44,23 @@
       <div class="col-right mt-section">
           <form autocomplete="off">
               <div class="form-field">
+                  <label class="label" for="field-1">Search by Member's last name</label>
                   <input class="text-input" name="field-1" value="{{mpname}}" placeholder="{{ translate('mpLastNamePlaceholder') }}" />
                   {{#if suggestions}}
                   <ul class="js-bloodhound-suggestions">
                     {{#each suggestions}}
-                      <li on-click="mpselect" data-mp-id="{{id}}">{{firstname}} {{lastname}}</li>
+                      <li on-click="mpselect" data-mp-id="{{id}}">{{lastname}}, {{firstname}}</li>
+                    {{/each}}
+                  </ul>
+                  {{/if}}
+              </div>
+              <div class="form-field">
+                  <label class="label" for="field-2">Search by any text</label>
+                  <input class="text-input" name="field-2" value="{{mpnameFullText}}" placeholder="{{ translate('fullTextPlaceholder') }}" />
+                  {{#if fulltextSuggestions}}
+                  <ul class="js-bloodhound-suggestions">
+                    {{#each fulltextSuggestions}}
+                      <li on-click="mpselect" data-mp-id="{{id}}"><strong>{{id}}:</strong> "{{val}}"</li>
                     {{/each}}
                   </ul>
                   {{/if}}
@@ -62,14 +74,15 @@
     {{#if politician}}
     <div class="row bdt-section" id="results">
       <div class="col-left">
+
         <h2 class="t-h2-s" id="title_mainprojection">{{ mpname }} <!--: {{ translate("results") }}--></h2>
         <p class="t-bd-s" id="par_mainprojection">{{{ translate("resultsIntroText") }}}</p>
-        <div class="btns-share">
-          <button class="btn-tt" data-source="twitter" data-view="labour-gains-and-losses"></button>
-          <button class="btn-fb" data-source="facebook" data-view="labour-gains-and-losses"> </button>
-        </div>
+
+
       </div>
-      <div class="col-right mt-section">
+      <div class="col-right mt-section" style="margin-top:32px;">
+        <p style="float: right; margin-bottom: 20px;"><button on-click="incrementNext" class="button">Next</button></p>
+        <p style="float: right; margin-bottom: 20px;"><button on-click="incrementPrev" class="button">Previous</button></p>
         {{#each politicianData}}
           <DataTable area="{{this}}" title="{{@key}}" />
         {{/each}}

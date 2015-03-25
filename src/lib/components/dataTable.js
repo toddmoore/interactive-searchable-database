@@ -19,20 +19,20 @@ class DataTableComponent {
 		this.set("areaLength", this.get("area").length);
 		if (this.get("areaLength")) {
 			var parentValues = [];
-			this.get("area").forEach((item) => {
-				console.log(this.get("area"), this.get("values"))
-				var keys = [];
-				var values = [];
-				for (var key in item) {
-					if (key != "$$hashKey") {
-						keys.push(key);
-						values.push(item[key]);
+			if(typeof this.get("area") === "object")
+				this.get("area").forEach((item) => {
+					var keys = [];
+					var values = [];
+					for (var key in item) {
+						if (key != "$$hashKey" && key != "unique_id") {
+							keys.push(key);
+							values.push(item[key]);
+						}
 					}
-				}
-				parentValues.push(values)
-				this.set("keys", keys);
-			});
-			this.set("values", parentValues);
+					parentValues.push(values)
+					this.set("keys", keys);
+				});
+				this.set("values", parentValues);
 		}
 	}
 }

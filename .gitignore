@@ -6,3 +6,5 @@ build
 build.js
 build.js.map
 src/css
+scritps/*
+.idea
