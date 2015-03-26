@@ -1,4 +1,4 @@
-import Ractive from 'ractive'
+import Ractive from 'ractive';
 import mainTemplate from '../templates/index.html.txt!text';
 import dataTable from './components/dataTable';
 import jquery from 'jquery';

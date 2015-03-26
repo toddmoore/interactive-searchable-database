@@ -14,10 +14,9 @@
 
             </div>
           </div>
-          <p class="byline" data-link-name="byline" data-component="meta-byline">
-            <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
-              <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/nick-evershed">Nick Evershed</a>
-            </span>
+          <p class="byline" data-link-name="byline" data-component="meta-byline"><span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
+                <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/nick-evershed">Nick Evershed</a></span>, <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
+                <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/todd-moore">Todd Moore</a></span> and <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">Guardian Readers</span>
           </p>
           <ul class="col-right mb-60 ul__party t-ul__party" style="list-style-type: none">
             <li>
@@ -75,7 +74,7 @@
     <div class="row bdt-section" id="results">
       <div class="col-left">
 
-            <h2 class="t-h2-s" id="title_mainprojection">{{ mpname }}</h2>
+          <h2 class="t-h2-s" id="title_mainprojection">{{ mpname }}</h2>
           <p class="t-bd-s" id="par_mainprojection">{{{ translate("resultsIntroText") }}}</p>
           <p class="t-bd-s" id="par_mainprojection"><a href="{{ pdfUrl }}" target="_blank">{{{ translate("resultsDownloadPDF") }}}</a></p>
 
@@ -84,11 +83,7 @@
         <p style="float: right; margin-bottom: 20px;"><button on-click="incrementNext" class="button">Next</button></p>
         <p style="float: right; margin-bottom: 20px;"><button on-click="incrementPrev" class="button">Previous</button></p>
         {{#each politicianData}}
-
-
           <DataTable area="{{this}}" title="{{@key}}"  />
-
-
         {{/each}}
       </div>
     </div>
