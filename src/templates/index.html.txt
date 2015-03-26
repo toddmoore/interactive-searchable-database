@@ -17,7 +17,7 @@
           <p class="byline" data-link-name="byline" data-component="meta-byline"><span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
                 <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/nick-evershed">Nick Evershed</a></span>, <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
                 <a rel="author" class="tone-colour" itemprop="url name" data-link-name="auto tag link" href="http://www.theguardian.com/profile/todd-moore">Todd Moore</a></span> and <span itemscope="" itemtype="http://schema.org/Person" itemprop="author">Guardian Readers</span>
-          </p>
+          </p><p>{{ translate("extrasParagraph") }}</p>
           <ul class="col-right mb-60 ul__party t-ul__party" style="list-style-type: none">
             <li>
               <a class="rounded-icon social-icon social-icon--facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ translateAndEscape("pageURL") }}">

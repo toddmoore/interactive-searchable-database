@@ -3,14 +3,15 @@ import mainTemplate from '../templates/index.html.txt!text';
 import dataTable from './components/dataTable';
 import jquery from 'jquery';
 import TypeAhead from 'typeahead.js';
-import Datums from '../data.json.txt!text';
-import Datums2 from '../data-text.json.txt!text';
-import Sample from '../sample.json.txt!text';
+import Politicians from '../politicians.json.txt!text';
+import FullTextData from '../full-text-data.json.txt!text';
+import PecuniaryInterests from '../pecuinary-interests.json.txt!text';
 
 var key = "1d41uUjUpyzX5SVJGgo7RZfOTmOWBMzBzPhFOLHRUOSE";
-var datums = JSON.parse(Datums);
-var datums2 = JSON.parse(Datums2);
-var sample = JSON.parse(Sample);
+var politicians = JSON.parse(Politicians);
+var fulltextData = JSON.parse(FullTextData);
+var pecuniaryinterests = JSON.parse(PecuniaryInterests);
+
 
 class App extends Ractive {
     constructor(translations, bloodhound, bloodhound2, id) {
@@ -24,11 +25,11 @@ class App extends Ractive {
         * Cehcks the id and if it matches then set the index
         * to this index
         * */
-        var s = id ? sample[id] : sample[datums[0].id];
-        var p = datums[0];
-        var mp = id ? id : datums[0].id;
+        var s = id ? pecuniaryinterests[id] : pecuniaryinterests[politicians[0].id];
+        var p = politicians[0];
+        var mp = id ? id : politicians[0].id;
         if (id) {
-            datums.forEach((data, index) => {
+            politicians.forEach((data, index) => {
                 if (data.id == id) {
                     id = index
                 }
@@ -129,12 +130,12 @@ class App extends Ractive {
     setMp(mp) {
         this.get("reset").call(this);
         var id = mp.context.id;
-        datums.forEach((_mp_, index) => {
+        politicians.forEach((_mp_, index) => {
             if (_mp_.id === id) {
                 this.set("id", index);
             }
         });
-        this.get("setPollie").call(this, id, mp.context, sample[id]);
+        this.get("setPollie").call(this, id, mp.context, pecuniaryinterests[id]);
     }
 
     /*
@@ -142,12 +143,12 @@ class App extends Ractive {
     * */
     next(context) {
 
-        if (this.get("id") < datums.length - 1) {
+        if (this.get("id") < politicians.length - 1) {
             this.get("reset").call(this, true);
             this.set("id", this.get("id") + 1)
-            this.get("setPollie").call(this, datums[this.get("id")].id, datums[this
+            this.get("setPollie").call(this, politicians[this.get("id")].id, politicians[this
                 .get(
-                "id")], sample[datums[this.get("id")].id]);
+                "id")], pecuniaryinterests[politicians[this.get("id")].id]);
 
         }
     }
@@ -159,9 +160,9 @@ class App extends Ractive {
         if (this.get("id") != 0) {
             this.get("reset").call(this, true);
             this.set("id", this.get("id") - 1)
-            this.get("setPollie").call(this, datums[this.get("id")].id, datums[this
+            this.get("setPollie").call(this, politicians[this.get("id")].id, politicians[this
                 .get(
-                "id")], sample[datums[this.get("id")].id]);
+                "id")], pecuniaryinterests[politicians[this.get("id")].id]);
         }
     }
 }
@@ -199,10 +200,10 @@ var translations = new Promise((resolved, rejected) => {
             id = `${hashArray[1]}, ${hashArray[2]}`;
         }
 
-        // Fire up the bloodhounds by lastname
+         //Fire up the bloodhounds by lastname
         var lastname = new Bloodhound({
             name: 'lastname',
-            local: datums,
+            local: politicians,
             datumTokenizer: function (d) {
                 return Bloodhound.tokenizers.whitespace(d.lastname);
             },
@@ -212,7 +213,7 @@ var translations = new Promise((resolved, rejected) => {
         // Bloodhound
         var fulltext = new Bloodhound({
             name: 'textone',
-            local: datums2,
+            local: fulltextData,
             limit: 5,
             datumTokenizer: function (d) {
                 return Bloodhound.tokenizers.whitespace(d.val);
@@ -222,7 +223,7 @@ var translations = new Promise((resolved, rejected) => {
 
 
         lastname.initialize() && fulltext.initialize();
-        var app = new App(data, lastname, fulltext, id);
+        var app = new App(data, null, null, id);
         var ractive = new Ractive(app);
 
         ractive.on('mpselect', app.setMp);
