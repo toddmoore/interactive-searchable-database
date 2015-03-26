@@ -40,17 +40,18 @@ gulp.task('deploy', ['build'], function() {
 gulp.task('build', ['styles'], function() {
   gulp.src('./')
     .pipe(shell([
-      'jspm bundle-sfx src/lib/index',
+      'jspm bundle-sfx --minify src/lib/index',
       'cp -f ./build.js ./build/',
       'cp -rf ./src/css ./build && cp -rf ./src/images ./build/images',
-      'cp -f ./src/boot.js ./build'
+      'cp -f ./src/boot.js ./build',
+      'cp -f ./jspm_packages/babel-polyfill.js ./build'
     ]));
 
   gulp.src('./src/index.html')
     .pipe(htmlreplace({
       src: 'src/index.html',
       'js': {
-        src: [ 'build.js']
+        src: ['babel-polyfill.js', 'build.js']
       }
     }))
     .pipe(gulp.dest('build/'));

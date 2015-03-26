@@ -191,6 +191,7 @@ input {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 50%;
+  display: inline-block;
 }
 .social-icon, .social-icon:hover, .social-icon:active, .social-icon:focus {
   color: #ffffff;

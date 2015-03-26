@@ -21,14 +21,14 @@
           </p>
           <ul class="col-right mb-60 ul__party t-ul__party" style="list-style-type: none">
             <li>
-              <div class="rounded-icon social-icon social-icon--facebook">
+              <a class="rounded-icon social-icon social-icon--facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ translateAndEscape("pageURL") }}">
                 <i class="i-share-facebook--white i"></i>
-              </div>
+              </a>
             </li>
             <li>
-              <div class="rounded-icon social-icon social-icon--twitter">
+              <a class="rounded-icon social-icon social-icon--twitter" target="_blank" href="https://twitter.com/intent/tweet?text={{ translateAndEscape("twitterText") }}&url={{ translateAndEscape("pageURL") }}">
                 <i class="i-share-twitter--white i"></i>
-              </div>
+              </a>
             </li>
           </ul>
         </div>
@@ -75,16 +75,20 @@
     <div class="row bdt-section" id="results">
       <div class="col-left">
 
-        <h2 class="t-h2-s" id="title_mainprojection">{{ mpname }} <!--: {{ translate("results") }}--></h2>
-        <p class="t-bd-s" id="par_mainprojection">{{{ translate("resultsIntroText") }}}</p>
-
+            <h2 class="t-h2-s" id="title_mainprojection">{{ mpname }}</h2>
+          <p class="t-bd-s" id="par_mainprojection">{{{ translate("resultsIntroText") }}}</p>
+          <p class="t-bd-s" id="par_mainprojection"><a href="{{ pdfUrl }}" target="_blank">{{{ translate("resultsDownloadPDF") }}}</a></p>
 
       </div>
       <div class="col-right mt-section" style="margin-top:32px;">
         <p style="float: right; margin-bottom: 20px;"><button on-click="incrementNext" class="button">Next</button></p>
         <p style="float: right; margin-bottom: 20px;"><button on-click="incrementPrev" class="button">Previous</button></p>
         {{#each politicianData}}
-          <DataTable area="{{this}}" title="{{@key}}" />
+
+
+          <DataTable area="{{this}}" title="{{@key}}"  />
+
+
         {{/each}}
       </div>
     </div>

@@ -17,6 +17,14 @@ class DataTableComponent {
 
 	init() {
 		this.set("areaLength", this.get("area").length);
+		if(this.get("title") === "pdfUrl" || this.get("title") === "upto"){
+			this.set("areaLength", 0);
+
+		}
+		if(this.get("title") === "pdfUrl"){
+			this.parent.set("pdfUrl", this.get("area"))
+		}
+
 		if (this.get("areaLength")) {
 			var parentValues = [];
 			if(typeof this.get("area") === "object")
