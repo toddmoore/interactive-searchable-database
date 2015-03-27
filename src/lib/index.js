@@ -223,7 +223,7 @@ var translations = new Promise((resolved, rejected) => {
 
 
         lastname.initialize() && fulltext.initialize();
-        var app = new App(data, null, null, id);
+        var app = new App(data, lastname, fulltext, id);
         var ractive = new Ractive(app);
 
         ractive.on('mpselect', app.setMp);
